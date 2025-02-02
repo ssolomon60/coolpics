@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=family=Mooli&display=swap");
- :root {
- --primary-color: #52489c;
- --secondary-color: #59c3c3;
- --accent-color: #f45b69;
- --text-dark: #333;
- --text-light: #ebebeb;
- --primary-font: Arial, Helvetica,sans-serif;
- --secondary-font: Mooli, san-serif;
- }
+
+:root {
+    --primary-color: #52489c;
+    --secondary-color: #59c3c3;
+    --accent-color: #f45b69;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: Mooli, sans-serif;
+}
 
 body {
     font-family: var(--primary-font);
@@ -50,7 +51,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Menu button */
 #menu {
     background-color: var(--secondary-color);
     color: white;
@@ -60,7 +60,6 @@ nav ul li a {
     display: none;
 }
 
-/* Main Content */
 main {
     padding: 2rem;
     text-align: center;
@@ -82,7 +81,6 @@ img {
     object-fit: cover;
 }
 
-/* Footer */
 footer {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -90,12 +88,17 @@ footer {
     padding: 1rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 700px) {
     .gallery {
         grid-template-columns: 1fr;
     }
     #menu {
+        display: block;
+    }
+    nav ul.hide {
+        display: none;
+    }
+    nav ul.show {
         display: block;
     }
 }
@@ -112,5 +115,46 @@ footer {
     }
     #menu {
         display: none;
+    }
+}
+
+.viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close-viewer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.close-viewer:hover {
+    color: var(--accent-color);
+}
+
+@media (min-width: 1001px) {
+    .viewer img {
+        max-width: 70%;
+        max-height: 70%;
     }
 }
